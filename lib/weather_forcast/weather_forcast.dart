@@ -15,9 +15,6 @@ class _WeatherforcastState extends State<Weatherforcast> {
   void initState() {
     super.initState();
     forcastObject = Network().getWeatherForcast(cityName: _cityName);
-    // forcastObject.then((weather) {
-    //   print(weather.list[0].weather[0].main);
-    // });
   }
 
   Widget build(BuildContext context) {
@@ -38,8 +35,11 @@ class _WeatherforcastState extends State<Weatherforcast> {
                 );
               } else {
                 return Container(
-                  child: Center(
-                    child: CircularProgressIndicator(),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
                   ),
                 );
               }
