@@ -106,7 +106,7 @@ class Lista {
   double speed;
   int deg;
   int clouds;
-  double pop;
+  int pop;
   double snow;
   double rain;
 
@@ -187,12 +187,12 @@ class Temp {
   Temp({this.day, this.min, this.max, this.night, this.eve, this.morn});
 
   Temp.fromJson(Map<String, dynamic> json) {
-    day = json['day'].todouble();
-    min = json['min'].todouble();
-    max = json['max'].todouble();
-    night = json['night'].todouble();
-    eve = json['eve'].todouble();
-    morn = json['morn'].todouble();
+    day = json['day'].toDouble();
+    min = json['min'].toDouble();
+    max = json['max'].toDouble();
+    night = json['night'].toDouble();
+    eve = json['eve'].toDouble();
+    morn = json['morn'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -216,10 +216,10 @@ class FeelsLike {
   FeelsLike({this.day, this.night, this.eve, this.morn});
 
   FeelsLike.fromJson(Map<String, dynamic> json) {
-    day = json['day'].todouble();
-    night = json['night'].todouble();
-    eve = json['eve'].todouble();
-    morn = json['morn'].todouble();
+    day = json['day'].toDouble();
+    night = json['night'].toDouble();
+    eve = json['eve'].toDouble();
+    morn = json['morn'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
