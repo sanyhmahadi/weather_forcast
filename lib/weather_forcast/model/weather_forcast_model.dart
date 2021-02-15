@@ -106,7 +106,7 @@ class Lista {
   double speed;
   int deg;
   int clouds;
-  int pop;
+  double pop;
   double snow;
   double rain;
 
@@ -145,7 +145,7 @@ class Lista {
     speed = json['speed'];
     deg = json['deg'];
     clouds = json['clouds'];
-    pop = json['pop'];
+    pop = json['pop'].toDouble();
     snow = json['snow'];
     rain = json['rain'];
   }
