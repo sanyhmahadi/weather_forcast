@@ -10,14 +10,12 @@ class Weatherforcast extends StatefulWidget {
 
 class _WeatherforcastState extends State<Weatherforcast> {
   Future<WeatherForcastModel> forcastObject;
-  String _cityName = "Mumbai";
+  String _cityName = "Dhaka";
+
   @override
   void initState() {
     super.initState();
-    forcastObject = Network().getWeatherForcast(cityName: _cityName);
-    // forcastObject.then((weather) {
-    //   print(weather.list[0].weather[0].main);
-    // });
+    forcastObject = newMethod(cityname: _cityName);
   }
 
   Widget build(BuildContext context) {
@@ -30,6 +28,9 @@ class _WeatherforcastState extends State<Weatherforcast> {
             future: forcastObject,
             builder: (BuildContext context,
                 AsyncSnapshot<WeatherForcastModel> snapshot) {
+              print(snapshot.data);
+              print(snapshot.connectionState);
+
               if (snapshot.hasData) {
                 return Column(
                   children: [
@@ -38,8 +39,11 @@ class _WeatherforcastState extends State<Weatherforcast> {
                 );
               } else {
                 return Container(
-                  child: Center(
-                    child: CircularProgressIndicator(),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
                   ),
                 );
               }
@@ -58,8 +62,16 @@ class _WeatherforcastState extends State<Weatherforcast> {
             prefixIcon: Icon(Icons.search),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
             contentPadding: EdgeInsets.all(8)),
-        onSubmitted: (value) {},
+        onSubmitted: (value) {
+          setState(() {
+            _cityName = value;
+            forcastObject = newMethod(cityname: _cityName);
+          });
+        },
       ),
     );
   }
+
+  Future<WeatherForcastModel> newMethod({String cityname}) =>
+      new Network().getWeatherForcast(cityName: _cityName);
 }
