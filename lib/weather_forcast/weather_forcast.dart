@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_forcast/weather_forcast/ui/bottom_view.dart';
 import 'package:weather_forcast/weather_forcast/ui/mid_view.dart';
 import 'model/weather_forcast_model.dart';
 import 'network/network.dart';
@@ -34,7 +35,10 @@ class _WeatherforcastState extends State<Weatherforcast> {
               if (snapshot.hasData) {
                 return Column(
                   children: [
-                    midView(snapshot),
+                    MidView(snapshot: snapshot),
+                    BottomView(
+                      snapshot: snapshot,
+                    ),
                   ],
                 );
               } else {
@@ -55,19 +59,23 @@ class _WeatherforcastState extends State<Weatherforcast> {
   }
 
   Widget textFieldView() {
-    return Container(
-      child: TextField(
-        decoration: InputDecoration(
-            hintText: "Enter the City Name",
-            prefixIcon: Icon(Icons.search),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-            contentPadding: EdgeInsets.all(8)),
-        onSubmitted: (value) {
-          setState(() {
-            _cityName = value;
-            forcastObject = newMethod(cityname: _cityName);
-          });
-        },
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        child: TextField(
+          decoration: InputDecoration(
+              hintText: "Enter the City Name",
+              prefixIcon: Icon(Icons.search),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              contentPadding: EdgeInsets.all(8)),
+          onSubmitted: (value) {
+            setState(() {
+              _cityName = value;
+              forcastObject = newMethod(cityname: _cityName);
+            });
+          },
+        ),
       ),
     );
   }
