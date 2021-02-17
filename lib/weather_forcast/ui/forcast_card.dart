@@ -36,12 +36,15 @@ Widget forcastCard(AsyncSnapshot<WeatherForcastModel> snapshot, int index) {
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0),
                       child: Text(
-                          "${forcastList[index].temp.min.toStringAsFixed(0)}°F"),
+                          "${forcastList[index].temp.min.toStringAsFixed(0)}°F",
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontWeight: FontWeight.bold)),
                     ),
                     Icon(
                       FontAwesomeIcons.solidArrowAltCircleDown,
                       size: 18,
-                      color: Colors.white,
+                      color: Colors.brown,
                     ),
                   ],
                 ),
@@ -50,11 +53,14 @@ Widget forcastCard(AsyncSnapshot<WeatherForcastModel> snapshot, int index) {
                   child: Row(
                     children: [
                       Text(
-                          "${forcastList[index].temp.max.toStringAsFixed(0)}°F"),
+                          "${forcastList[index].temp.max.toStringAsFixed(0)}°F",
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontWeight: FontWeight.bold)),
                       Icon(
                         FontAwesomeIcons.solidArrowAltCircleUp,
                         size: 18,
-                        color: Colors.white,
+                        color: Colors.brown,
                       ),
                     ],
                   ),
@@ -64,7 +70,10 @@ Widget forcastCard(AsyncSnapshot<WeatherForcastModel> snapshot, int index) {
                   child: Row(
                     children: [
                       Text(
-                          "Humidity:${forcastList[index].humidity.toStringAsFixed(0)}%"),
+                          "Humidity:${forcastList[index].humidity.toStringAsFixed(0)}%",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold)),
                       // Icon(
                       //   FontAwesomeIcons.solidGrinBeamSweat,
                       //   size: 18,
@@ -78,7 +87,10 @@ Widget forcastCard(AsyncSnapshot<WeatherForcastModel> snapshot, int index) {
                   child: Row(
                     children: [
                       Text(
-                          "Wind:${forcastList[index].speed.toStringAsFixed(1)} mil/h"),
+                          "Wind:${forcastList[index].speed.toStringAsFixed(1)} mil/h",
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontWeight: FontWeight.bold)),
                       // Icon(
                       //   FontAwesomeIcons.wind,
                       //   size: 18,
