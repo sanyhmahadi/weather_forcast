@@ -24,18 +24,22 @@ class BottomView extends StatelessWidget {
               separatorBuilder: (context, index) => SizedBox(
                 height: 8,
               ),
+              //ekhane separate hobe totat amount of index and index = 7 casue List ar index holo 7 ta
               scrollDirection: Axis.horizontal,
               itemCount: snapshot.data.list.length,
               itemBuilder: (context, index) => ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: BorderRadius.all(Radius.circular(50)),
                 child: Container(
                   width: MediaQuery.of(context).size.width / 2.3,
                   height: 160,
-                  child: forcastCard(snapshot, index),
+                  child: forcastCard(snapshot,
+                      index), //ekhane forcast_card thake snapshot and index-
+                  //index(data base ar List ar index which is 7 ) ata pass hocchey
+                  //and ei kahner index ta itemBuiler er index a pass hobe
                   decoration: BoxDecoration(
                       gradient: LinearGradient(colors: [
                     Color(0xff9661C3),
-                    Colors.white,
+                    Color(0xfffd79a8),
                   ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
                 ),
               ),

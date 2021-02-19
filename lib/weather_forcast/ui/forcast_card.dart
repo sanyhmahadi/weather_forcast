@@ -5,11 +5,13 @@ import 'package:weather_forcast/weather_forcast/util/convert_icon.dart';
 import 'package:weather_forcast/weather_forcast/util/util.dart';
 
 Widget forcastCard(AsyncSnapshot<WeatherForcastModel> snapshot, int index) {
-  var forcastList = snapshot.data.list;
+  var forcastList = snapshot.data.list; //ei dik a list ar index pathano hoise
   var dayOfWeek = "";
   var fullDate = Util.getFormatteDate(
       new DateTime.fromMillisecondsSinceEpoch(forcastList[index].dt * 1000));
   dayOfWeek = fullDate.split(",")[0];
+  //that means at first it will spilt ta date like suppose sunday,20feb,2021 and
+  //[0]means will the first string that means sunday
 
   return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,12 +25,19 @@ Widget forcastCard(AsyncSnapshot<WeatherForcastModel> snapshot, int index) {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.white,
-                child: getWeatherIcon(
-                    weatherDescription: forcastList[index].weather[0].main,
-                    color: Colors.pinkAccent)),
+            Padding(
+              padding: const EdgeInsets.only(left: 4.0),
+              child: CircleAvatar(
+                  radius: 25,
+                  backgroundColor: Colors.white,
+                  child: Center(
+                    child: getWeatherIcon(
+                        weatherDescription: forcastList[index].weather[0].main,
+                        // forcastList mane holo dataset er List namok option ta and
+                        //forcastList[index] holo
+                        color: Colors.pinkAccent),
+                  )),
+            ),
             Column(
               children: [
                 Row(

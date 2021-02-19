@@ -21,7 +21,7 @@ class MidView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "${city(snapshot)},${country(snapshot)},",

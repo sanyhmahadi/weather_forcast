@@ -16,7 +16,7 @@ class _WeatherforcastState extends State<Weatherforcast> {
   @override
   void initState() {
     super.initState();
-    forcastObject = newMethod(cityname: _cityName);
+    forcastObject = searchButtonInput(cityname: _cityName);
   }
 
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class _WeatherforcastState extends State<Weatherforcast> {
           onSubmitted: (value) {
             setState(() {
               _cityName = value;
-              forcastObject = newMethod(cityname: _cityName);
+              forcastObject = searchButtonInput(cityname: _cityName);
             });
           },
         ),
@@ -80,6 +80,6 @@ class _WeatherforcastState extends State<Weatherforcast> {
     );
   }
 
-  Future<WeatherForcastModel> newMethod({String cityname}) =>
+  Future<WeatherForcastModel> searchButtonInput({String cityname}) =>
       new Network().getWeatherForcast(cityName: _cityName);
 }
