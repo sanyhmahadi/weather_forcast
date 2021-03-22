@@ -60,21 +60,24 @@ class _WeatherforcastState extends State<Weatherforcast> {
 
   Widget textFieldView() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10.0),
       child: Container(
-        child: TextField(
-          decoration: InputDecoration(
-              hintText: "Enter the City Name",
-              prefixIcon: Icon(Icons.search),
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-              contentPadding: EdgeInsets.all(8)),
-          onSubmitted: (value) {
-            setState(() {
-              _cityName = value;
-              forcastObject = searchButtonInput(cityname: _cityName);
-            });
-          },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            decoration: InputDecoration(
+                hintText: "Enter the City Name",
+                prefixIcon: Icon(Icons.search),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                contentPadding: EdgeInsets.all(8)),
+            onSubmitted: (value) {
+              setState(() {
+                _cityName = value;
+                forcastObject = searchButtonInput(cityname: _cityName);
+              });
+            },
+          ),
         ),
       ),
     );
